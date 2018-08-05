@@ -1,6 +1,21 @@
 function mostrar()
 {
+	var contador=0;
+	var acumulador=0;
+	debugger;
+	var respuesta
 
+	while(respuesta !="no")
+	{	
+		respuesta=prompt("Ingrese un numero, de lo contrario ingrese 'no'");
+		respuesta=parseInt(respuesta);
+		acumulador = acumulador + respuesta;
+		contador++;
+	}
+
+	document.getElementById('suma').value=acumulador;
+	document.getElementById('promedio').value=acumulador/contador;
+	/*
 	var contador=0;
 	var acumulador=0;
 	var respuesta='si';
@@ -15,7 +30,7 @@ function mostrar()
 		contador=contador+1;
 	}
 	
-document.getElementById('suma').value=acumulador;
-document.getElementById('promedio').value=acumulador/contador;
-
+	document.getElementById('suma').value=acumulador;
+	document.getElementById('promedio').value=acumulador/contador;
+	*/
 }//FIN DE LA FUNCIÓN
