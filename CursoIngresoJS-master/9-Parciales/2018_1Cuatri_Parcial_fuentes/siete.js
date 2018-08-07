@@ -6,13 +6,12 @@ function mostrar()
     var promedio;
     var totaldenotas=0;
     var varonesaprobados=0;
-    var notabajaf=0;
-    var notabajam=0;
-    var primeraf=true;
-    var primeram=true;
+    var notabaja=0;
+    var minsexo="-";
+    var primera=true;
     debugger;
 
-    while (contador <5)
+    while (contador < 5)
     {   
         nota=prompt("Ingrese otra nota del 1 al 10");
         nota=parseInt(nota);
@@ -25,45 +24,37 @@ function mostrar()
         {
             sexo=prompt("El sexo es incorrecto. Ingrese nuevamente.");
         }
-        if (sexo == "f")
+
+        if (primera) 
         {
-            while(primeraf)
-            {
-                notabajaf=nota;
-                primeraf=false;
-            }
-            if(primeraf=false && nota < notabajaf)
-            {
-                notabajaf=nota;
-            }
+            notabaja = nota;
+            minsexo = sexo;
+            primera = true;
         }
-        else
+        else if (nota < notabaja)
         {
-            while(primeram)
-            {
-                notabajam=nota;
-                if (nota >=6)
-                {
-                    varonesaprobados++;
-                }
-                primeram=false;
-            }
-            if(primeram=false && nota < notabajam)
-            {
-                notabajam=nota;
-            }
+            notabaja = nota;
+            minsexo = sexo;
         }
-        totaldenotas=parseInt(totaldenotas);
-        totaldenotas+=nota;
+
+        if (sexo == "m" && nota >= 6)
+        {
+            varonesaprobados++;
+        }
+
+        totaldenotas += nota;
         contador++;
-        promedio=totaldenotas/contador;
     }
+    promedio=totaldenotas / contador;
     
     alert(
         "El promedio de las notas es: "+ promedio +
-        ". La nota mas baja femenina fue: " + notabajaf +
-        ". La nota mas baja masculina fue: " + notabajam +
+        ". La nota mas baja fue: " + notabaja + " de sexo " + minsexo +
         ". La cantidad de varones aprobados es: "+ varonesaprobados
-        )
+        );
 
 }
+/*
+1 - parseint de mas
+2 - promedio abajo
+*/
