@@ -12,8 +12,13 @@ f) El número y la letra del máximo y el mínimo.*/
     var numerosimpares=0;
     var numerosceros=0;
     var sumapositivos=0;
-    var promediopositovos=0;
+    var promediopositivos=0;
     var sumanegativos=0;
+    var contadorpositivos=0;
+    var numeromin=100;
+    var numeromax=-100;
+    var letramin="";
+    var letramax="";
 
     debugger;
 
@@ -31,10 +36,9 @@ f) El número y la letra del máximo y el mínimo.*/
                 numero=parseInt(numero);
             }
 
-            if(numero % 2 == 0 && numero != 0)
+            if(numero % 2 == 0)
             {
                 numerospares++;
-                sumapositivos+=numero;
             }
             else
             {
@@ -45,12 +49,35 @@ f) El número y la letra del máximo y el mínimo.*/
             {
                 numerosceros++;
             }
-                                
-            }
-            else
+            else if (numero <0)
             {
                 sumanegativos+=numero;
             }
+            else 
+            {
+                sumapositivos+=numero;
+                contadorpositivos++;
+            }
+            
+            if (numero < numeromin)
+            {
+                letramin=letra;
+                numeromin=numero;
+            }
+            
+            if (numero > numeromax)
+            {
+                letramax=letra;
+                numeromax=numero;
+            }
         }
     }
+    promediopositivos=sumapositivos/contadorpositivos;
+
+    document.write("La cantidad de numeros pares es: "+ numerospares +
+    ", la cantidad de numeros impares es: "+ numerosimpares +", la cantidad de ceros es: "
+    + numerosceros + ", el promedio de los positivos es: "+ promediopositivos + 
+    ", la suma de negativos es: "+ sumanegativos + ", el numero minimo y la letra es: "
+    + numeromin + " " + letramin + ", el numero maximo y la letra es: "+ numeromax + " "
+    + letramax + ".")
 }
